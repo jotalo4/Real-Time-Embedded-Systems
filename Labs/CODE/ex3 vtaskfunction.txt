@@ -1,0 +1,27 @@
+static void vTaskFunction( void *pvParameters )
+{
+char *pcTaskName;
+// Declare a string variable "pcTaskName" WITHOUT initialization
+	
+	volatile unsigned long ul;
+	
+	// The string to print out is passed in via the parameter.  
+
+pcTaskName = (char *)pvParameters;
+//Cast the input parameter "pvParameters" to character pointer (i.e., char *) and assign it to the variable "pcTaskName".
+		
+	/* As per most tasks, this task is implemented in an infinite loop
+		which is exactly SAME as the loop body of vTask1 in Example 1.*/
+	for( ;; )
+	{
+		printf(pcTaskName);// print the name of this task		
+
+		/* Delay for a period. */
+		for( ul = 0; ul < mainDELAY_LOOP_COUNT; ul++ )
+		{
+			/* This loop is just a very crude delay implementation.  There is
+			nothing to do in here.  Later exercises will replace this crude
+			loop with a proper delay/sleep function. */
+		}
+	}
+}
